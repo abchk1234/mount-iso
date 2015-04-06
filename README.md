@@ -10,7 +10,7 @@ From the command line:
 
 ```./mount-iso.sh <path-to-iso-file>```
 
-A custom action for Thunar can also be created (mount-iso.sh copied to /usr/bin/mount-iso):
+A custom action for Thunar can also be created (*mount-iso.sh* copied to ```/usr/bin/mount-iso```):
 
 ~~~~
 <icon>application-x-cd-image</icon>
