@@ -23,14 +23,15 @@ fi
 
 # The following does not seem to work for some devices;
 # specifically those that are created like /dev/loop5p1
-output=$(udisksctl loop-setup -r -f "$iso_path")	# loop mount, read-only, specified file
+# So we try to mount it and store the output for further enquiry
+output=$(udisksctl loop-setup -r -f "$iso_path")  # read-only loop mount
 
 # Get device name from output
 device=$(echo "$output" | grep -o "loop[0-9]*")
 
 # Check if device was created like /dev/${device}p1
 if [ -e "/dev/${device}p1" ]; then
-	udisksctl mount -b "/dev/${device}p1" > /dev/null  # block mount the device
+	udisksctl mount -b "/dev/${device}p1" > /dev/null  # mount as block dev
 fi
 
 # Done
